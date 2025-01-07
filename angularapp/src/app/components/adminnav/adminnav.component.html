@@ -1,0 +1,53 @@
+<nav class="bg-gradient-to-r from-black via-gray-900 to-red-900 p-4 shadow-lg">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex-col ">
+      <div class="flex items-center space-x-2">
+        <img src="https://cdn.vectorstock.com/i/1000v/21/55/circle-school-education-icon-set-vector-27962155.avif"
+          alt="EduInvestor Logo" class="h-8 w-8">
+        <h1 class="text-white text-2xl font-bold">EduInvestor</h1>
+      </div>
+
+    </div>
+    <ul class="flex space-x-6 items-center">
+
+      <li><a routerLink="adminHomePage" class="text-white hover:text-gray-300 transition duration-300">Home</a></li>
+
+      <li class=" relative group">
+        <a class="text-white hover:text-gray-300 transition duration-300 cursor-pointer">Loans</a>
+        <ul class=" absolute hidden bg-gray-800 text-white py-2 rounded shadow-lg group-hover:block">
+          <li><a routerLink="/admin/edu-loans" class="block px-4 py-2 hover:bg-gray-700">Add Loan</a></li>
+          <li><a routerLink="/admin/allLoans" class="block px-4 py-2 hover:bg-gray-700">View Loans</a></li>
+          <li><a routerLink="/admin/edu-loan-requests" class="block px-4 py-2 hover:bg-gray-700">Requested Loans</a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li><a routerLink="/admin/feedbacks" class="text-white hover:text-gray-300 transition duration-300">Feedbacks</a>
+      </li>
+      <li class="relative group">
+        <a class="text-white hover:text-gray-300 transition duration-300 cursor-pointer">{{ currentLoggedinUser }}</a>
+        <ul class="absolute hidden group-hover:block bg-gray-800 text-white py-2 rounded shadow-lg">
+          <li class="px-1.5 pr-6">Admin</li>
+          <li class="px-1.5 pr-6">
+            <a class="text-white hover:bg-gray-700 transition duration-300 cursor-pointer"
+              (click)="showLogoutPopup = true">Logout</a>
+          </li>
+        </ul>
+      </li>
+      <img style="margin: 0 0 0 9px;" [src]="avatarSvg" alt="User Avatar" class="rounded-full w-8 h-8">
+    </ul>
+  </div>
+
+</nav>
+
+
+<div *ngIf="showLogoutPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-6 rounded shadow-lg">
+    <p>Are you sure you want to logout?</p>
+    <div class="flex items-center justify-center space-x-2.5 pt-6">
+      <button (click)="logout()" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+      <button (click)="showLogoutPopup = false" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+    </div>
+  </div>
+</div>

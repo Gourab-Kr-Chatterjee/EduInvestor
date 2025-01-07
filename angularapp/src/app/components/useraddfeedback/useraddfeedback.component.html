@@ -1,0 +1,34 @@
+<div class="container mx-auto p-4 bg-white shadow-md rounded-lg">
+  <h2 class="text-3xl font-bold text-center my-4">User Feedback Form</h2>
+  
+  <div class="mb-6">
+    <p class="text-gray-700">We value your feedback and strive to improve our services based on your suggestions. Please take a moment to share your thoughts with us. Your feedback helps us understand what we're doing well and where we can improve.</p>
+    <h3 class="text-xl font-bold mb-2">How to Write Effective Feedback</h3>
+    <ul class="list-disc list-inside text-gray-700">
+      <li>Be specific: Provide detailed information about your experience.</li>
+      <li>Be constructive: Offer suggestions for improvement.</li>
+      <li>Be respectful: Use polite and professional language.</li>
+      <li>Be concise: Keep your feedback clear and to the point.</li>
+    </ul>
+  </div>
+
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg">
+    <div class="mb-4">
+      <textarea formControlName="feedbackText" placeholder="Enter your feedback" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      <div *ngIf="feedbackText.touched && feedbackText.invalid" class="text-red-500 text-sm mt-1">
+        <p>The feedback field should not be empty.</p>
+      </div>
+    </div>
+    <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 disabled:opacity-50">Submit</button>
+  </form>
+
+  <div *ngIf="showPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <h1 class="text-xl font-bold mb-4">Feedback Submitted</h1>
+      <button (click)="closePopup()" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Okay</button><br>
+      <span>Click here for
+        <a routerLink="/userFeedback" style="color: blue;">View-Feedbacks</a>
+    </span>
+    </div>
+  </div>
+</div>
