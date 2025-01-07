@@ -1,0 +1,26 @@
+<app-navbar *ngIf="authService.isAdmin() == false && authService.isUser() == false" class="sticky top-0" style="z-index: 9999;"></app-navbar>
+<app-adminnav *ngIf="authService.isAdmin() == true && authService.isUser() == false" class="sticky top-0" style="z-index: 9999;"></app-adminnav>
+<app-usernav *ngIf="authService.isAdmin() == false && authService.isUser() == true" class="sticky top-0" style="z-index: 9999;"></app-usernav>
+
+
+
+<router-outlet id="container"></router-outlet>
+<app-footer></app-footer>
+
+<!-- <app-loanform></app-loanform>
+<app-createloan></app-createloan>
+
+<app-login></app-login>
+<app-registration></app-registration>
+
+<app-userviewloan></app-userviewloan>
+<app-userappliedloan></app-userappliedloan>
+
+
+<app-useraddfeedback></app-useraddfeedback>
+<app-userviewfeedback></app-userviewfeedback>
+<app-admineditloan></app-admineditloan>
+<app-adminviewfeedback></app-adminviewfeedback>
+<app-requestedloan></app-requestedloan> -->
+
+
