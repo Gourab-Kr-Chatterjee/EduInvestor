@@ -1,0 +1,70 @@
+<!-- admin-home.component.html -->
+<div class="bg-gradient-to-r from-red-100 via-gray-200 to-black p-4 shadow-lg">
+
+    <div class="bg-white p-6 rounded-lg shadow-md fade-in mb-8">
+        <h2 class="text-xl font-bold mb-2">Banking Loan Information</h2>
+        <p class="text-gray-700 mb-4">Understanding the different types of loans available can help you make informed decisions. Here are some common loan types:</p>
+        <ul class="list-disc pl-5 mb-4">
+            <li class="mb-2">Personal Loans: Unsecured loans for personal expenses.</li>
+            <li class="mb-2">Home Loans: Loans for purchasing or renovating a home.</li>
+            <li class="mb-2">Auto Loans: Loans for purchasing a vehicle.</li>
+            <li class="mb-2">Education Loans: Loans for funding educational expenses.</li>
+        </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md fade-in mb-8">
+        <form>
+            <div class="text-right mb-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" (click)="getBack()">Back</button>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">Edit Loan</h2>
+            <div class="mb-4">
+                <label for="loanType1" class="block text-gray-700 font-bold mb-2">Loan Type</label>
+                <span class="text-red-500">*</span><br>
+                <input id="loanType1" name="loanType" [(ngModel)]="newLoan.loanType" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="description1" class="block text-gray-700 font-bold mb-2">Description</label>
+                <span class="text-red-500">*</span><br>
+                <input id="description1" name="description" [(ngModel)]="newLoan.description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="interestRate1" class="block text-gray-700 font-bold mb-2">Interest Rate</label>
+                <span class="text-red-500">*</span><br>
+                <input id="interestRate1" name="interestRate" [(ngModel)]="newLoan.interestRate" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="maximumAmount1" class="block text-gray-700 font-bold mb-2">Maximum Amount</label>
+                <span class="text-red-500">*</span><br>
+                <input id="maximumAmount1" name="maximumAmount" [(ngModel)]="newLoan.maximumAmount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="repaymentTenure1" class="block text-gray-700 font-bold mb-2">Repayment Tenure</label>
+                <span class="text-red-500">*</span><br>
+                <input id="repaymentTenure1" name="repaymentTenure" [(ngModel)]="newLoan.repaymentTenure" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="eligibility1" class="block text-gray-700 font-bold mb-2">Eligibility</label>
+                <span class="text-red-500">*</span><br>
+                <input id="eligibility1" name="eligibility" [(ngModel)]="newLoan.eligibility" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="documentsRequired1" class="block text-gray-700 font-bold mb-2">Documents Required</label>
+                <span class="text-red-500">*</span><br>
+                <input id="documentsRequired1" name="documentsRequired" [(ngModel)]="newLoan.documentsRequired" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <button (click)="updateLoan()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Update Loan</button>
+        </form>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md fade-in mb-8">
+        <h2 class="text-xl font-bold mb-2">Additional Loan Information</h2>
+        <p class="text-gray-700 mb-4">When applying for a loan, it's important to consider the following:</p>
+        <ul class="list-disc pl-5 mb-4">
+            <li class="mb-2">Check your credit score and report any discrepancies.</li>
+            <li class="mb-2">Compare interest rates and terms from different lenders.</li>
+            <li class="mb-2">Understand the fees and charges associated with the loan.</li>
+            <li class="mb-2">Ensure you have all the required documents ready.</li>
+        </ul>
+    </div>
+</div>

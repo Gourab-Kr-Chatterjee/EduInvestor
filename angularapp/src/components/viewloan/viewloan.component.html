@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <div class="mt-4 flex items-center justify-center w-full mb-4">
+
+
+    <div class="relative">
+      <input type="text" placeholder="Search..." name="SearchLoan" [(ngModel)]="searchTerm" (input)="FilterLoan()"
+        class=" p-2 pl-10 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200">
+      <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+    </div>
+
+
+  </div>
+
+
+<div class="View p-4">
+  <h1 class="text-2xl font-bold mb-4">Edu Loans</h1>
+
+  <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+    <thead>
+      <tr class="bg-gray-100 border-b">
+        <th class="py-2 px-4 border">S.No</th>
+        <th class="py-2 px-4 border">LoanType</th>
+        <th class="py-2 px-4 border">Description</th>
+        <th class="py-2 px-4 border">Interest Rate</th>
+
+        <th class="py-2 px-4 border">Maximum Amount
+          <select
+            class="w-full p-0 pl-0 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200"
+            name="sortTerm" [(ngModel)]="sortTerm" (change)="sortLoan()">
+            <option disabled selected value="">Sort by Amount</option>
+            <option value="high">High To Low</option>
+            <option value="low">Low To High</option>
+          </select>
+        </th>
+
+
+        <th class="py-2 px-4 border">Repayment Tenure</th>
+        <th class="py-2 px-4 border">Eligibility</th>
+        <th class="py-2 px-4 border">Document Required</th>
+        <th class="py-2 px-4 border">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of allLoans; let i = index" class="border-b hover:bg-gray-50">
+        <td class="py-2 px-4 border-b">{{i+1}}</td>
+        <td class="py-2 px-4 border-b">{{loan.loanType}}</td>
+        <td class="py-2 px-4 border-b">{{loan.description}}</td>
+        <td class="py-2 px-4 border-b">{{loan.interestRate}}</td>
+        <td class="py-2 px-4 border-b">{{loan.maximumAmount}}</td>
+        <td class="py-2 px-4 border-b">{{loan.repaymentTenure}}</td>
+        <td class="py-2 px-4 border-b">{{loan.eligibility}}</td>
+        <td class="py-2 px-4 border-b">{{loan.documentsRequired}}</td>
+        <td class="py-2 px-4 border-b">
+          <div class="flex space-x-2">
+            <button (click)="giveModal(loan.loanId)"
+              class="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600 text-sm"><i
+                class="fa-solid fa-edit"></i></button>
+                <div id="mModal" class="modal">
+                  <div class="modal-content">
+                    <p>Do you want to edit this loan?</p>
+                    <button class="close" (click)="clModal()">Cancel</button>
+                    <button class="confirm" (click)="confirmEdit()">Edit</button>
+                  </div>
+                </div>
+            <button (click)="showModal(loan.loanId)"
+              class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 text-sm"><i
+                class="fa-duotone fa-solid fa-trash fa-beat"
+                style="--fa-primary-color: #d80e0e --fa-secondary-color: #de0d0d"></i></button>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <p>Do you want to delete this loan?</p>
+                <button class="close" (click)="closeModal()">Cancel</button>
+                <button class="confirm" (click)="confirmDelete()">Delete</button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div *ngIf="deleteErrorMessage" class="alert">
+    {{ deleteErrorMessage }}
+  </div>
+
+
+
+</div>
