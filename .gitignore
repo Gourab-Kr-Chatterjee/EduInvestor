@@ -1,0 +1,7 @@
+angularapp/package-lock.json
+angularapp/karma.conf.js
+angularapp/node_modules
+
+springapp/target
+angularapp/src/environments/environment.ts
+springapp/src/main/java/com/examly/springapp/utils/DataUtils.java
